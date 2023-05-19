@@ -107,6 +107,7 @@ main .grid .aba img:hover{
     height: 30vh;
     width: 30vh;
     border-radius: 35px;
+    
 }
 main .grid .aba:hover{
     transition: 1s;
