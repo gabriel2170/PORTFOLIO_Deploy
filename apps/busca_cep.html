@@ -120,7 +120,11 @@
                 var dados = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`)
                 var json = await dados.json()
                 
-                endereco.innerHTML = '<div class="base">' + '<br/>CEP: ' + json.cep + '<br/>Endereço: ' + json.logradouro + '<br/>Bairro: ' + json.bairro + '<br/>Complemento: ' + json.complemento + '<br/>Cidade: ' + json.localidade + '<br/>UF: ' + json.uf + '</div>'
+                if(json.cep == undefined){
+                    endereco.innerHTML = '<div class="base"><br/>CEP não localizado!!</div>'
+                }else{
+                    endereco.innerHTML = '<div class="base">' + '<br/>CEP: ' + json.cep + '<br/>Endereço: ' + json.logradouro + '<br/>Bairro: ' + json.bairro + '<br/>Complemento: ' + json.complemento + '<br/>Cidade: ' + json.localidade + '<br/>UF: ' + json.uf + '</div>'
+                }
                 
             } catch (error) {
                 endereco.innerHTML = '<div class="base"><br/>CEP não localizado!!</div>'
